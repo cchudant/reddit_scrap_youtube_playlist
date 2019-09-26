@@ -1,0 +1,23 @@
+{
+	"name": "deepintoyoutube",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "babel-node -r node_modules/dotenv/config index.js",
+		"generateAuthUrl": "babel-node -r node_modules/dotenv/config generateAuthUrl.js"
+	},
+	"author": "skybt <skybt@pm.me>",
+	"license": "MIT",
+	"dependencies": {
+		"dotenv": "^8.1.0",
+		"googleapis": "^43.0.0",
+		"reddit-wrapper-v2": "^1.1.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.2",
+		"@babel/node": "^7.6.2",
+		"@babel/preset-env": "^7.6.2",
+		"babel-plugin-transform-async-generator-functions": "^6.24.1"
+	}
+}
