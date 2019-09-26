@@ -100,29 +100,29 @@ async function storeRefreshToken(token) {
 			})
 			.map(([, res]) => res[1])
 
-			for (let id of ids) {
+		for (let id of ids) {
 
-				const res = await ytb.playlistItems.list({
-					part: 'id',
-					playlistId: YOUTUBE_PLAYLIST_ID,
-					videoId: id
-				})
+			const res = await ytb.playlistItems.list({
+				part: 'id',
+				playlistId: YOUTUBE_PLAYLIST_ID,
+				videoId: id
+			})
 
-				if (!res.data.items.length)
-				{
-					await ytb.playlistItems.insert({
-						part: 'id,snippet',
-						resource: {
-							snippet: {
-								playlistId: YOUTUBE_PLAYLIST_ID,
-								resourceId: { kind: 'youtube#video', videoId: id }
-							}
+			if (!res.data.items.length)
+			{
+				await ytb.playlistItems.insert({
+					part: 'id,snippet',
+					resource: {
+						snippet: {
+							playlistId: YOUTUBE_PLAYLIST_ID,
+							resourceId: { kind: 'youtube#video', videoId: id }
 						}
-					})
-					console.log(`Added video ${id} to the playlist.`)
-				} else {
-					console.log(`Video ${id} was already in the playlist.`)
-				}
+					}
+				})
+				console.log(`Added video ${id} to the playlist.`)
+			} else {
+				console.log(`Video ${id} was already in the playlist.`)
+			}
 		}
 	}
 
